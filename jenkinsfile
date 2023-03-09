@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-			    ./hello
+		./hello
                 echo 'Deploying and testing c code'
             }
         }
