@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                make hello
+                echo 'Building c source'
+            }
+        }
+        stage('Deploy') {
+            steps {
+			    ./hello
+                echo 'Deploying and testing c code'
+            }
+        }
+        stage('Release') {
+            steps {
+                echo 'Next stage for mainlining code when passed test cases'
+            }
+        }
+    }
+}
