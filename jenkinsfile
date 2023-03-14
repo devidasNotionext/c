@@ -15,9 +15,7 @@ pipeline {
             }
         }
         stage('Release') {
-            steps {
-                echo 'Next stage for mainlining code when passed test cases'
-            }
+            ftpPublisher alwaysPublishFromMaster: false, continueOnError: false, failOnError: false, publishers: [[configName: 'testftp', transfers: [[asciiMode: false, cleanRemote: false, excludes: '', flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'hello']], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false]]
         }
     }
 }
