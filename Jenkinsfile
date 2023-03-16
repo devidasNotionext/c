@@ -17,6 +17,7 @@ pipeline {
         stage('Release') {
             steps {
             echo ' Released code'
+            }
         }
     }
 }
