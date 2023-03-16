@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        node {
-             label 'agent1'
-             customWorkspace '/home/vagrant/workspace/'
-        }
-     }
+    agent any
 
     stages {
         stage('Build') {
