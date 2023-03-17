@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh ". build/envsetup.sh SC138-EAU-20-00"
+                sh "ls && pwd"
                 echo 'Building c source'
             }
         }
