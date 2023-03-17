@@ -9,13 +9,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "ls && pwd"
+                sh "make hello"
                 echo 'Building c source'
             }
         }
         stage('Deploy') {
             steps {
-                sh "lunch sc138-userdebug"
+                sh "./hello"
                 echo 'Deploying and testing c code'
             }
         }
