@@ -1,27 +1,28 @@
 pipeline {
     agent {
         node {
-             label 'agent1'
-             customWorkspace '/home/vagrant/workspace/'
+             label 'notionext'
+             customWorkspace '/home/devidas/workspace/vendor11_dev'
         }
      }
 
     stages {
         stage('Build') {
             steps {
-                sh "make all"
+                sh "source build/envsetup.sh SC138-EAU-20-00"
                 echo 'Building c source'
             }
         }
         stage('Deploy') {
             steps {
-                sh "./hello"
+                sh "lunch sc138-userdebug"
                 echo 'Deploying and testing c code'
             }
         }
         stage('Release') {
             steps {
-                ftpPublisher alwaysPublishFromMaster: false, continueOnError: false, masterNodeName: '', paramPublish: null, failOnError: false, publishers: [[configName: 'testftp', transfers: [[asciiMode: false, cleanRemote: false, excludes: '', flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'hello']], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false]]
+                sh "echo Hello > test.txt"
+                echo 'creating file'
             }
         }
     }
