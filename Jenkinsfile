@@ -2,21 +2,32 @@ pipeline {
     agent {
         node {
              label 'notionext'
-             customWorkspace '/home/devidas/workspace/vendor11_dev'
+             customWorkspace '/home/devidas/workspace/aosp13'
         }
      }
 
     stages {
+        stage('Init') {
+            steps {
+                sh "/home/devidas/bin/repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r30"
+                echo 'Building c source'
+            }
+        }
+        stage('Sync') {
+            steps {
+                sh "/home/devidas/bin/repo sync -j8"
+                echo 'Building c source'
+            }
+        }      
         stage('Build') {
             steps {
-                sh "make hello"
+                sh "./build.sh"
                 echo 'Building c source'
             }
         }
         stage('Deploy') {
             steps {
-                sh "./hello"
-                echo 'Deploying and testing c code'
+                echo 'Deploying on FTP server'
             }
         }
         stage('Release') {
