@@ -2,7 +2,7 @@ pipeline {
     agent {
         node {
              label 'notionext'
-             customWorkspace '/home/devidas/workspace/aosp13'
+             customWorkspace '/home/devidas/workspace/aosp13_chmod'
         }
      }
 
@@ -21,6 +21,7 @@ pipeline {
         }      
         stage('Build') {
             steps {
+                sh "/bin/chmod a+x build.sh"
                 sh "./build.sh"
                 echo 'Building c source'
             }
