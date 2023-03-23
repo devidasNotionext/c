@@ -2,20 +2,20 @@ pipeline {
     agent {
         node {
              label 'notionext'
-             customWorkspace '/home/devidas/workspace/aosp13_chmod'
+             customWorkspace '/media/notionext/usb_hdd/akshay/aosp'
         }
      }
 
     stages {
         stage('Init') {
             steps {
-                sh "/home/devidas/bin/repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r30"
+                sh "/home/akshay/bin/repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r30"
                 echo 'Building c source'
             }
         }
         stage('Sync') {
             steps {
-                sh "/home/devidas/bin/repo sync -j8"
+                sh "/home/akshay/bin/repo sync -j8"
                 echo 'Building c source'
             }
         }      
