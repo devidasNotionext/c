@@ -11,7 +11,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh "./hello"
-                echo 'Deploying and testing c code'
+                echo 'Deploying and testing c code for notionext'
             }
         }
         stage('Release') {
