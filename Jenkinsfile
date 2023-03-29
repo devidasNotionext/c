@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "make all"
-                echo 'Building c source'
+                echo 'Building c source from build webhook'
             }
         }
         stage('Deploy') {
