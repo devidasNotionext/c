@@ -2,7 +2,7 @@ pipeline {
     agent {
         node {
              label 'notionext'
-             customWorkspace '/home/devidas/workspace/aosp13_chmod'
+             customWorkspace '/home/devidas/workspace/A12_checkout'
         }
      }
 
