@@ -22,7 +22,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "/bin/chmod a+x build.sh"
-                sh "./build.sh dist -j8"
+                sh "./buildA12.sh"
                 echo 'Building c source'
             }
         }
