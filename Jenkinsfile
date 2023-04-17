@@ -1,8 +1,8 @@
 pipeline {
     agent {
         node {
-             label 'notionext'
-             customWorkspace '/home/devidas/workspace/A12_checkout'
+             label 'akshay'
+             customWorkspace '/media/storage/akshay/workspace/A12_checkout'
         }
      }
 
